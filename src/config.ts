@@ -100,7 +100,8 @@ export async function resolvePublishActionOptions(): Promise<PublishActionOption
 
   const isEnterprise =
     !githubServerUrl.includes('https://github.com') &&
-    !githubServerUrl.endsWith('.ghe.com')
+    !githubServerUrl.endsWith('.ghe.com') &&
+    githubServerUrl != 'http://github.localhost'
 
   const repoMetadata = await apiClient.getRepositoryMetadata(
     apiBaseUrl,
